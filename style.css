@@ -80,3 +80,17 @@ body {
     transform: translateY(0);
   }
 }
+#photoContainer img{
+  position: absolute;
+  width: 150px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+  cursor: grab;
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float{
+  0%{transform: translateY(0px);}
+  50%{transform: translateY(-20px);}
+  100%{transform: translateY(0px);}
+}
