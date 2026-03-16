@@ -2,30 +2,70 @@
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<title>Eid Mubarak</title>
-<link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <title>Eid Mubarak</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="greeting-card">
+  <div class="greeting-card">
 
-<h1 id="greet"></h1>
+    <h1 id="greet"></h1>
 
-<p class="subtitle">....May this joyous day bring you lots of happiness.
-I pray for your well-being and success.
-May the Almighty accept your deeds and blessings in this holy month.
-Please remember me in your prayers as well. ✨....</p>
+    <p class="subtitle">
+      ....May this joyous day bring you lots of happiness.
+      I pray for your well-being and success.
+      May the Almighty accept your deeds and blessings in this holy month.
+      Please remember me in your prayers as well. ✨....
+    </p>
 
+    <!-- Reply Section -->
+    <h3>Leave a reply 💌</h3>
+    <textarea id="replyBox" placeholder="Write your reply..."></textarea>
+    <br><br>
+    <button onclick="sendReply()">Send Reply</button>
 
-</div>
+  </div>
 
+  <!-- Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-<script src="script.js"></script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCc-jm_gQFVCkt75vk3PUg1gjwvY3URozo",
+      authDomain: "eid-greeting-replies.firebaseapp.com",
+      projectId: "eid-greeting-replies",
+      storageBucket: "eid-greeting-replies.firebasestorage.app",
+      messagingSenderId: "358904258015",
+      appId: "1:358904258015:web:dbe27a24d6272a00c1b86a"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    window.sendReply = async function () {
+      const reply = document.getElementById("replyBox").value;
+      if (reply === "") return alert("Write something first!");
+
+      // Get user name from URL
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get("name") || "Anonymous";
+
+      await addDoc(collection(db, "replies"), {
+        name: name,
+        message: reply,
+        time: Date.now()
+      });
+
+      alert("Reply sent ❤️");
+      document.getElementById("replyBox").value = "";
+    }
+  </script>
+
+  <!-- Main JS -->
+  <script src="script.js"></script>
 
 </body>
-
 </html>
