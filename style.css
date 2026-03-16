@@ -1,153 +1,82 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-body{
-
-height:100vh;
-
-display:flex;
-justify-content:center;
-align-items:center;
-
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-
-color:white;
-
-overflow:hidden;
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: white;
+  overflow: hidden;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    padding: 50px;
-    border-radius: 15px;
-    text-align: center;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 1.5s ease;
+.card, .greeting-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 50px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 1.5s ease;
 }
 
-.card h1 {
-    font-size: 45px;
-    margin-bottom: 15px;
-    color: #ffd700;
+.card h1, #greet {
+  font-size: 25px;
+  margin-bottom: 15px;
+  color: #ffd700;
 }
 
-.card p {
-    margin-bottom: 30px;
-    font-size: 18px;
-    opacity: 0.9;
+.card p, .subtitle {
+  margin-bottom: 30px;
+  font-size: 18px;
+  opacity: 0.9;
 }
 
-.card input {
-    padding: 12px;
-    border: none;
-    border-radius: 8px;
-    margin-right: 10px;
-    font-size: 16px;
+.card input, textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  margin-right: 10px;
+  font-size: 16px;
+  width: 250px;
 }
 
-.card button {
-    text-decoration: none;
-    background: #ffd700;
-    color: black;
-    padding: 12px 25px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
+.card button, .btn {
+  text-decoration: none;
+  background: #ffd700;
+  color: black;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: 0.3s;
+  cursor: pointer;
 }
 
-.card button:hover {
-    background: white;
-    transform: scale(1.05);
+.card button:hover, .btn:hover {
+  background: white;
+  transform: scale(1.05);
 }
 
-.greeting-card{
-
-background:rgba(255,255,255,0.1);
-
-backdrop-filter:blur(10px);
-
-padding:50px;
-
-border-radius:15px;
-
-text-align:center;
-
-box-shadow:0 10px 40px rgba(0,0,0,0.4);
-
-animation:fadeIn 1.5s ease;
-
-}
-
-#greet{
-
-font-size:25px;
-
-margin-bottom:15px;
-
-color:#ffd700;
-
-}
-
-.subtitle{
-
-margin-bottom:30px;
-
-font-size:18px;
-
-opacity:0.9;
-
-}
-
-.btn{
-
-text-decoration:none;
-
-background:#ffd700;
-
-color:black;
-
-padding:12px 25px;
-
-border-radius:8px;
-
-font-weight:bold;
-
-transition:0.3s;
-
-}
-
-.btn:hover{
-
-background:white;
-
-transform:scale(1.05);
-
-}
-
-@keyframes fadeIn{
-
-from{
-opacity:0;
-transform:translateY(30px);
-}
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
