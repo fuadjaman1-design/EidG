@@ -25,6 +25,13 @@ const specialReplies = {
   "Sourav": "🌙 Eid Mubarak, Sourav mama! ঈদ কাটা ভালো করে।ক্যাম্পাসে আয়,অনেক কথা আছে তোর সাথে।ব্যাবসা টা এবার দাড় করিয়ে ফেলতেই হবে",
   "sourav": "🌙 Eid Mubarak, Sourav mama! ঈদ কাটা ভালো করে।ক্যাম্পাসে আয়,অনেক কথা আছে তোর সাথে।ব্যাবসা টা এবার দাড় করিয়ে ফেলতেই হবে"
 };
+const specialImages = {
+  "tuly": [
+    "images/Tuly1.PNG",
+    "images/Tuly2.avif",
+    "images/Tuly3.PNG"
+  ]
+};
 
 // Generic wishes for other names 
 const genericWishes = "Wishing you joy, peace, and blessings ✨";
@@ -41,3 +48,42 @@ if (specialReplies[name]) {
 }
 
 greet.innerHTML = message;
+
+const photoContainer = document.getElementById("photoContainer");
+
+if(specialImages[name]){
+  specialImages[name].forEach((src,i)=>{
+    
+    const img = document.createElement("img");
+    img.src = src;
+
+    img.style.left = (100 + i*180) + "px";
+    img.style.top = (100 + i*50) + "px";
+
+    makeDraggable(img);
+
+    photoContainer.appendChild(img);
+
+  });
+}
+function makeDraggable(el){
+
+  let offsetX, offsetY;
+
+  el.onmousedown = function(e){
+
+    offsetX = e.clientX - el.offsetLeft;
+    offsetY = e.clientY - el.offsetTop;
+
+    document.onmousemove = function(e){
+      el.style.left = (e.clientX - offsetX) + "px";
+      el.style.top = (e.clientY - offsetY) + "px";
+    }
+
+    document.onmouseup = function(){
+      document.onmousemove = null;
+    }
+
+  }
+
+}
